@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ContactsDirectModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="lenstype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typename" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="optionalproducts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product" Type="varchar" MaxLength="255" />
+          <Property Name="amount" Type="int" />
+        </EntityType>
+        <EntityType Name="paymentmethod">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="method" Type="int" />
+        </EntityType>
+        <EntityType Name="prescriptiontype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="prescription" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="subscriptionlength">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="months" Type="int" />
+        </EntityType>
+        <EntityContainer Name="ContactsDirectModelStoreContainer">
+          <EntitySet Name="lenstype" EntityType="Self.lenstype" Schema="contactsdirect" store:Type="Tables" />
+          <EntitySet Name="optionalproducts" EntityType="Self.optionalproducts" Schema="contactsdirect" store:Type="Tables" />
+          <EntitySet Name="paymentmethod" EntityType="Self.paymentmethod" Schema="contactsdirect" store:Type="Tables" />
+          <EntitySet Name="prescriptiontype" EntityType="Self.prescriptiontype" Schema="contactsdirect" store:Type="Tables" />
+          <EntitySet Name="subscriptionlength" EntityType="Self.subscriptionlength" Schema="contactsdirect" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ContactsDirectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="lenstype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typename" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="optionalproduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="paymentmethod">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="method" Type="Int32" />
+        </EntityType>
+        <EntityType Name="prescriptiontype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="prescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="subscriptionlength">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="months" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="contactsdirectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="lenstypes" EntityType="Self.lenstype" />
+          <EntitySet Name="optionalproducts" EntityType="Self.optionalproduct" />
+          <EntitySet Name="paymentmethods" EntityType="Self.paymentmethod" />
+          <EntitySet Name="prescriptiontypes" EntityType="Self.prescriptiontype" />
+          <EntitySet Name="subscriptionlengths" EntityType="Self.subscriptionlength" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ContactsDirectModelStoreContainer" CdmEntityContainer="contactsdirectEntities">
+          <EntitySetMapping Name="lenstypes">
+            <EntityTypeMapping TypeName="ContactsDirectModel.lenstype">
+              <MappingFragment StoreEntitySet="lenstype">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="typename" ColumnName="typename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="optionalproducts">
+            <EntityTypeMapping TypeName="ContactsDirectModel.optionalproduct">
+              <MappingFragment StoreEntitySet="optionalproducts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product" ColumnName="product" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paymentmethods">
+            <EntityTypeMapping TypeName="ContactsDirectModel.paymentmethod">
+              <MappingFragment StoreEntitySet="paymentmethod">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="method" ColumnName="method" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prescriptiontypes">
+            <EntityTypeMapping TypeName="ContactsDirectModel.prescriptiontype">
+              <MappingFragment StoreEntitySet="prescriptiontype">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="prescription" ColumnName="prescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subscriptionlengths">
+            <EntityTypeMapping TypeName="ContactsDirectModel.subscriptionlength">
+              <MappingFragment StoreEntitySet="subscriptionlength">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="months" ColumnName="months" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

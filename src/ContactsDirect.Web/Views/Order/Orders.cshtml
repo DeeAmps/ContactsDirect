@@ -1,0 +1,18 @@
+﻿@*@model ContactsDirect.Web.ViewModels.OrderViewModel*@
+
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Available Orders</h2>
+<hr />
+<div class="container">
+    <div class="col-md-4">
+        <p>Select Contact Lens Type</p>
+    </div>
+    <div class="col-md-8">
+        @*@Html.DropDownListFor(model => model.lenstype, Model.lenstype as SelectList, new { @class = "form-control" })*@  
+    </div>
+</div>
+
